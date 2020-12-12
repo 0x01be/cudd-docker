@@ -1,4 +1,4 @@
-FROM 0x01be/base:3.12.2 as build
+FROM 0x01be/base as build
 
 RUN apk add --no-cache --virtual cudd-build-dependencies \
     git \
@@ -18,7 +18,7 @@ RUN ./configure --prefix=/opt/cudd/
 RUN make
 RUN make install
 
-FROM 0x01be/base:3.12.2
+FROM 0x01be/base
 
 COPY --from=build /opt/cudd/ /opt/cudd/
 
