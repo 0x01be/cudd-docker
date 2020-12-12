@@ -1,4 +1,4 @@
-FROM alpine as build
+FROM alpine:3.12.2 as build
 
 RUN apk add --no-cache --virtual cudd-build-dependencies \
     git \
